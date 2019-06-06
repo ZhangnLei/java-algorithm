@@ -4,9 +4,9 @@ Java面试准备
 
 concurrent：并发编程
 
-  thread：线程
+  --thread：线程
   
-  lock：锁机制
+  --lock：锁机制
   
 javacore：java核心
 
