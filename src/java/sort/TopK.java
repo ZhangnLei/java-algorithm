@@ -6,14 +6,21 @@ import java.util.List;
 import java.util.PriorityQueue;
 
 /**
- * Created by mrzhang on 2019/5/30.
- *
- * 从n个数里找到n个最大的值
+ * @author zhangnianlei
+ * @create 2019/5/30.
+ * @description 从n个数里找到k个最大的值
  */
 public class TopK {
-
+    /**
+     * 从n个数里找到k个最大的值
+     * @param nums
+     * @param k
+     * @return
+     */
     public static List<Integer> topK(int[] nums, int k){
+        //建堆
         PriorityQueue<Integer> heap = new PriorityQueue(k + 1);
+        //向堆中添加元素， 如果元素大于K个则将最小的一个移出堆
         for (int i : nums){
             heap.add(i);
             if (heap.size() > k){
@@ -21,9 +28,11 @@ public class TopK {
             }
         }
         List<Integer> list = new LinkedList<>();
+        //将堆中剩余的元素取出来
         while (!heap.isEmpty()){
             list.add(heap.poll());
         }
+        //翻转list
         Collections.reverse(list);
         return list;
     }
